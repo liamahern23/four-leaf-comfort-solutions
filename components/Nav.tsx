@@ -63,11 +63,11 @@ export default function Nav() {
             {/* CTA */}
             <div className="hidden lg:flex items-center gap-4">
               <a
-                href="tel:[Phone Number]"
+                href="tel:3307528971"
                 className="flex items-center gap-2 text-gold/80 hover:text-gold text-sm font-medium transition-colors"
               >
                 <Phone size={15} />
-                [Phone Number]
+                (330) 752-8971
               </a>
               <a
                 href="#contact"
@@ -118,10 +118,10 @@ export default function Nav() {
                 Schedule Free Inspection
               </a>
               <a
-                href="tel:[Phone Number]"
+                href="tel:3307528971"
                 className="text-gold/70 text-center text-base"
               >
-                [Phone Number]
+                (330) 752-8971
               </a>
             </nav>
           </motion.div>

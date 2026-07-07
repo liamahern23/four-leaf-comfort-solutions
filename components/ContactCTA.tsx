@@ -60,7 +60,7 @@ export default function ContactCTA() {
               className="flex flex-col gap-5"
             >
               {[
-                { icon: Phone, label: "[Phone Number]", href: "tel:[Phone Number]" },
+                { icon: Phone, label: "(330) 752-8971", href: "tel:3307528971" },
                 { icon: Mail, label: "[Company URL]", href: "mailto:info@[Company URL]" },
                 { icon: MapPin, label: "Serving Northeast Ohio", href: "#" },
               ].map(({ icon: Icon, label, href }) => (

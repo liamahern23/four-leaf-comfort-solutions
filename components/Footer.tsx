@@ -32,9 +32,9 @@ export default function Footer() {
               air sealing, baffles, and insulation removal — done right, for real.
             </p>
             <div className="flex flex-col gap-3">
-              <a href="tel:[Phone Number]" className="flex items-center gap-3 text-white/40 hover:text-white/70 transition-colors text-sm">
+              <a href="tel:3307528971" className="flex items-center gap-3 text-white/40 hover:text-white/70 transition-colors text-sm">
                 <Phone size={14} className="text-gold/50" />
-                [Phone Number]
+                (330) 752-8971
               </a>
               <a href="mailto:info@[Company URL]" className="flex items-center gap-3 text-white/40 hover:text-white/70 transition-colors text-sm">
                 <Mail size={14} className="text-gold/50" />

@@ -121,10 +121,10 @@ export default function FAQ() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              href="tel:[Phone Number]"
+              href="tel:3307528971"
               className="inline-flex items-center text-green-dark font-semibold text-sm hover:text-green-mid transition-colors"
             >
-              [Phone Number] →
+              (330) 752-8971 →
             </motion.a>
           </div>
 
