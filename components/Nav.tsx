@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   { label: "Our Process", href: "#process" },
@@ -26,25 +27,22 @@ export default function Nav() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-green-dark/95 backdrop-blur-md shadow-lg shadow-black/20"
+            ? "bg-green/92 backdrop-blur-md shadow-md shadow-black/10"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-[88px] lg:h-[96px]">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-3 group">
-              <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gold/20 border border-gold/40 group-hover:bg-gold/30 transition-colors">
-                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-gold" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2C9 6 4 7 4 12c0 2.2.9 4.2 2.3 5.7C7.5 19.1 9.6 20 12 20s4.5-.9 5.7-2.3C19.1 16.2 20 14.2 20 12c0-5-5-6-8-10z" opacity="0.3"/>
-                  <path d="M12 2C10 5 7 6 5.5 9c1 .5 2.1.8 3.3.8C11 9.8 12.8 9 14 7.7c.3 1.5.1 3.1-.7 4.5 1.1-.2 2.2-.8 3-1.8C17.5 8.5 17 5 12 2z"/>
-                  <path d="M8.8 9.8C7 10.4 5.5 11.9 5 14c.8-.3 1.6-.4 2.5-.4C9 13.6 10.4 14.4 11 15.7c.6-1.3.6-2.9-.2-4.4 1 .8 1.7 2 1.7 3.3 0 2.2-1.8 4-4 4-2.2 0-4-1.8-4-4 0-2.9 1.9-5.3 4.3-5.8z" opacity="0.6"/>
-                </svg>
-              </div>
-              <div>
-                <span className="block text-white font-semibold text-sm tracking-wide leading-tight">Four Leaf</span>
-                <span className="block text-gold/80 text-xs tracking-widest uppercase leading-tight">Comfort Solutions</span>
-              </div>
+            <a href="/" className="flex items-center">
+              <Image
+                src="/images/logo-primary.png"
+                alt="Four Leaf Comfort Solutions"
+                width={4031}
+                height={3685}
+                className="h-[64px] lg:h-[80px] w-auto object-contain"
+                priority
+              />
             </a>
 
             {/* Desktop nav */}

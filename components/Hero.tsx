@@ -17,15 +17,15 @@ const badges = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-green-dark flex flex-col justify-center overflow-hidden">
-      {/* Background texture */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{
+    <section className="relative min-h-screen bg-green flex flex-col justify-center overflow-hidden">
+      {/* Light texture */}
+      <div className="absolute inset-0 opacity-[0.025]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
       }} />
 
-      {/* Radial glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-green-mid/20 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-gold/10 blur-[100px] pointer-events-none" />
+      {/* Soft radial highlights */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-white/8 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[400px] rounded-full bg-gold/8 blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 lg:pt-44 lg:pb-32">
         <div className="max-w-4xl">
@@ -98,7 +98,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-green-dark to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-green/40 to-transparent" />
     </section>
   );
 }

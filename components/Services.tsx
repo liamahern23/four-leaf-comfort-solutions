@@ -101,7 +101,7 @@ export default function Services() {
               }}
               className={`group rounded-2xl p-7 lg:p-9 border transition-all duration-300 cursor-default ${
                 s.accent
-                  ? "bg-green-dark border-green-dark text-white"
+                  ? "bg-white border-green/30 shadow-md shadow-green/8"
                   : "bg-white border-cream-warm hover:border-green/20 hover:shadow-lg hover:shadow-green/5"
               }`}
             >
@@ -109,7 +109,7 @@ export default function Services() {
                 {/* Number */}
                 <span
                   className={`text-4xl font-serif font-medium flex-shrink-0 ${
-                    s.accent ? "text-gold/40" : "text-charcoal/10"
+                    s.accent ? "text-green/20" : "text-charcoal/10"
                   }`}
                 >
                   {s.number}
@@ -119,14 +119,14 @@ export default function Services() {
                 <div className="lg:w-64 flex-shrink-0">
                   <h3
                     className={`font-semibold text-xl mb-1 ${
-                      s.accent ? "text-white" : "text-charcoal"
+                      s.accent ? "text-green-dark" : "text-charcoal"
                     }`}
                   >
                     {s.title}
                   </h3>
                   <p
                     className={`text-xs font-medium tracking-widest uppercase ${
-                      s.accent ? "text-gold/60" : "text-green-muted"
+                      s.accent ? "text-green-muted" : "text-green-muted"
                     }`}
                   >
                     {s.subtitle}
@@ -136,7 +136,7 @@ export default function Services() {
                 {/* Body */}
                 <p
                   className={`flex-1 text-sm leading-relaxed ${
-                    s.accent ? "text-white/55" : "text-charcoal-light"
+                    s.accent ? "text-charcoal-light" : "text-charcoal-light"
                   }`}
                 >
                   {s.body}
@@ -147,7 +147,7 @@ export default function Services() {
                   <span
                     className={`text-xs px-3 py-1.5 rounded-full border ${
                       s.accent
-                        ? "border-gold/20 text-gold/60"
+                        ? "border-green/20 text-green-mid"
                         : "border-green/15 text-green-mid"
                     }`}
                   >

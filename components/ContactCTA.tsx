@@ -61,8 +61,7 @@ export default function ContactCTA() {
             >
               {[
                 { icon: Phone, label: "(330) 752-8971", href: "tel:3307528971" },
-                { icon: Mail, label: "[Company URL]", href: "mailto:info@[Company URL]" },
-                { icon: MapPin, label: "Serving Northeast Ohio", href: "#" },
+                { icon: MapPin, label: "3490 Ridgewood Rd, Fairlawn, OH 44333", href: "#" },
               ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}

@@ -36,13 +36,9 @@ export default function Footer() {
                 <Phone size={14} className="text-gold/50" />
                 (330) 752-8971
               </a>
-              <a href="mailto:info@[Company URL]" className="flex items-center gap-3 text-white/40 hover:text-white/70 transition-colors text-sm">
-                <Mail size={14} className="text-gold/50" />
-                [Company URL]
-              </a>
               <span className="flex items-center gap-3 text-white/40 text-sm">
                 <MapPin size={14} className="text-gold/50" />
-                [Address]
+                3490 Ridgewood Rd, Fairlawn, OH 44333
               </span>
             </div>
           </div>

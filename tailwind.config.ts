@@ -10,16 +10,16 @@ const config: Config = {
     extend: {
       colors: {
         green: {
-          DEFAULT: "#0C3B2E",
-          dark: "#081F19",
-          mid: "#14523F",
-          light: "#1A6B52",
-          muted: "#2D7A62",
+          DEFAULT: "#2D6B4F",
+          dark: "#255445",
+          mid: "#3A7A5E",
+          light: "#4A8A6E",
+          muted: "#5A9A7E",
         },
         gold: {
-          DEFAULT: "#C8963E",
-          light: "#DDB96A",
-          pale: "#F0DBA8",
+          DEFAULT: "#D6B261",
+          light: "#E8CB85",
+          pale: "#F4E4B8",
         },
         cream: {
           DEFAULT: "#F7F3EE",

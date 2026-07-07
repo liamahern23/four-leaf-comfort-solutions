@@ -62,7 +62,7 @@ export default function Process() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="process" className="bg-green-dark py-24 lg:py-36 overflow-hidden">
+    <section id="process" className="bg-[#F8F9F7] py-24 lg:py-36 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-16 lg:mb-24" ref={ref}>
@@ -78,7 +78,7 @@ export default function Process() {
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif text-4xl md:text-5xl text-white leading-tight"
+            className="font-serif text-4xl md:text-5xl text-charcoal leading-tight"
           >
             A thorough look,
             <br />
@@ -88,7 +88,7 @@ export default function Process() {
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="mt-5 text-white/50 text-lg leading-relaxed"
+            className="mt-5 text-charcoal-light text-lg leading-relaxed"
           >
             Our inspection isn't a sales call. It's a genuine look at how your
             home is performing — so any work we recommend is grounded in what
@@ -99,7 +99,7 @@ export default function Process() {
         {/* Steps */}
         <div className="relative">
           {/* Connector line on desktop */}
-          <div className="hidden lg:block absolute left-[26px] top-8 bottom-8 w-px bg-white/10" />
+          <div className="hidden lg:block absolute left-[26px] top-8 bottom-8 w-px bg-charcoal/10" />
 
           <div className="flex flex-col gap-8">
             {steps.map((s, i) => (
@@ -116,20 +116,20 @@ export default function Process() {
               >
                 {/* Step indicator */}
                 <div className="flex-shrink-0 flex flex-col items-center">
-                  <div className="relative w-[52px] h-[52px] rounded-full bg-green-mid border border-white/10 flex items-center justify-center group-hover:bg-gold group-hover:border-gold transition-all duration-300">
-                    <s.icon size={20} className="text-white/60 group-hover:text-green-dark transition-colors duration-300" />
-                    <span className="absolute -top-1 -right-1 text-[9px] font-bold text-gold/60 group-hover:text-green-dark/60 transition-colors">
+                  <div className="relative w-[52px] h-[52px] rounded-full bg-white border border-charcoal/10 shadow-sm flex items-center justify-center group-hover:bg-green group-hover:border-green transition-all duration-300">
+                    <s.icon size={20} className="text-green group-hover:text-white transition-colors duration-300" />
+                    <span className="absolute -top-1 -right-1 text-[9px] font-bold text-gold group-hover:text-white/60 transition-colors">
                       {s.step}
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="pb-8 border-b border-white/5 last:border-0 flex-1 pt-3">
-                  <h3 className="text-white font-semibold text-[17px] mb-2 leading-snug">
+                <div className="pb-8 border-b border-charcoal/8 last:border-0 flex-1 pt-3">
+                  <h3 className="text-charcoal font-semibold text-[17px] mb-2 leading-snug">
                     {s.title}
                   </h3>
-                  <p className="text-white/45 text-sm leading-relaxed max-w-lg">
+                  <p className="text-charcoal-light text-sm leading-relaxed max-w-lg">
                     {s.body}
                   </p>
                 </div>
@@ -147,11 +147,11 @@ export default function Process() {
         >
           <a
             href="#contact"
-            className="inline-flex items-center bg-gold hover:bg-gold-light text-green-dark font-semibold text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5"
+            className="inline-flex items-center bg-green-dark hover:bg-green text-white font-semibold text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green/20"
           >
             Schedule Free Inspection
           </a>
-          <p className="text-white/30 text-sm">
+          <p className="text-charcoal-light text-sm">
             No pressure. No obligation. Just an honest look.
           </p>
         </motion.div>
