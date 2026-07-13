@@ -2,17 +2,46 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Phone, Mail, MapPin, ArrowRight, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, CheckCircle, ShieldCheck, Award } from "lucide-react";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzdlqzdq";
+
+type Status = "idle" | "submitting" | "success" | "error";
 
 export default function ContactCTA() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
   const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus("submitting");
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+
+      const data = await res.json().catch(() => null);
+
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        console.error("[Formspree] Submission rejected:", data);
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error("[Formspree] Network error:", err);
+      setStatus("error");
+    }
   };
 
   return (
@@ -75,6 +104,27 @@ export default function ContactCTA() {
                 </a>
               ))}
             </motion.div>
+
+            {/* Trust badges */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="flex flex-wrap gap-3 mt-8"
+            >
+              {[
+                { icon: ShieldCheck, label: "Licensed & Insured" },
+                { icon: Award, label: "Owens Corning Certified Installer" },
+              ].map(({ icon: Icon, label }) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3.5 py-2"
+                >
+                  <Icon size={13} className="text-gold/70" />
+                  <span className="text-white/50 text-xs font-medium tracking-wide">{label}</span>
+                </div>
+              ))}
+            </motion.div>
           </div>
 
           {/* Right: form */}
@@ -84,7 +134,7 @@ export default function ContactCTA() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="flex-1"
           >
-            {submitted ? (
+            {status === "success" ? (
               <div className="bg-green-mid/40 border border-white/10 rounded-2xl p-10 flex flex-col items-center justify-center text-center min-h-[400px]">
                 <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-5">
                   <CheckCircle size={28} className="text-gold" />
@@ -100,6 +150,15 @@ export default function ContactCTA() {
                 onSubmit={handleSubmit}
                 className="bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-10 flex flex-col gap-5"
               >
+                {status === "error" && (
+                  <div className="bg-red-500/10 border border-red-400/20 rounded-xl px-4 py-3.5 text-red-300 text-sm">
+                    Something went wrong. Please try again or call us at{" "}
+                    <a href="tel:3307528971" className="underline underline-offset-2">
+                      (330) 752-8971
+                    </a>
+                    .
+                  </div>
+                )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1.5">
                     <label className="text-white/40 text-xs font-medium tracking-wide uppercase">
@@ -157,10 +216,11 @@ export default function ContactCTA() {
 
                 <button
                   type="submit"
-                  className="mt-2 w-full flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-light text-green-dark font-semibold text-base px-7 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-gold/20"
+                  disabled={status === "submitting"}
+                  className="mt-2 w-full flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-light disabled:opacity-60 disabled:cursor-not-allowed text-green-dark font-semibold text-base px-7 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-gold/20"
                 >
-                  Schedule Free Inspection
-                  <ArrowRight size={16} />
+                  {status === "submitting" ? "Sending…" : "Schedule Free Inspection"}
+                  {status !== "submitting" && <ArrowRight size={16} />}
                 </button>
 
                 <p className="text-white/20 text-xs text-center">
