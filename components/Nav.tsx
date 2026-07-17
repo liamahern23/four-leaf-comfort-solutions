@@ -6,6 +6,7 @@ import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
 
 const links = [
+  { label: "About", href: "#about" },
   { label: "Our Process", href: "#process" },
   { label: "Services", href: "#services" },
   { label: "Why Us", href: "#why" },
